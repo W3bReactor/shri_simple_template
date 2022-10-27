@@ -20,4 +20,10 @@ jobs:
       - name: build
         run: npm run build
       - name: deploy
+      - run: git config --global user.email "vaironfop@Mail.ru"
+      - run: git config --global user.name "W3breactor"
+      - run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        shell: /usr/bin/bash -e {0}
+        env:
+          GITHUB_TOKEN: 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
         run: npm run deploy
