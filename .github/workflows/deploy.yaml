@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    enviroment: 'Deploy'
+    environment: 'Deploy'
     steps:
       - uses: actions/checkout@v3 
       - name: Use Node.js ${{ matrix.node-version }}
