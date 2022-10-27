@@ -1,0 +1,23 @@
+name: Deploy
+
+on: 
+  pull_request:
+  push:
+    branches:    
+      - 'master'   
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    enviroment: 'Deploy'
+    steps:
+      - uses: actions/checkout@v3 
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - name: build
+        run: npm run build
+      - name: deploy
+        run: npm run deploy

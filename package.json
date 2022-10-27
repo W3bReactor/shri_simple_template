@@ -1,7 +1,7 @@
 {
     "name": "unit-demo-cra",
     "version": "0.1.0",
-    "homepage": ".",
+    "homepage": "https://w3breactor.github.io/Infrastructure/",
     "private": true,
     "dependencies": {
         "crypto-browserify": "^3.12.0",
@@ -14,17 +14,19 @@
         "react-scripts": "4.0.3",
         "redux": "^4.1.0",
         "redux-observable": "^2.0.0",
-        "rxjs": "^7.1.0"
+        "rxjs": "^7.1.0",
+        "uuid": "^9.0.0"
     },
     "scripts": {
-        "start": "echo \"implement me\"",
-        "build": "echo \"implement me\"",
-        "test": "echo \"implement me\"",
-        "lint:js": "echo \"implement me\"",
-        "lint:css": "echo \"implement me\"",
-        "analyze": "echo \"implement me\"",
+        "start": "cross-env NODE_ENV=development webpack serve --open --mode development",
+        "build": "cross-env NODE_ENV=production webpack --mode production",
+        "deploy": "npm run build | gh-pages -d dist",
+        "lint:js": "eslint **/src/*.js",
+        "lint:css": "stylelint **/*.css",
+        "analyze": "npm run build && statoscope generate stats.json --output report.html -o",
         "validate": "node_modules/.bin/statoscope validate -i stats.json --config=./statoscope.config.js"
     },
+    "eslintIgnore": ["**/node_modules/*.js", "**/dist/*.js"],
     "devDependencies": {
         "@babel/core": "^7.19.3",
         "@babel/preset-env": "^7.19.3",
@@ -33,7 +35,22 @@
         "@statoscope/stats-validator-plugin-webpack": "^5.24.0",
         "@statoscope/webpack-plugin": "^5.24.0",
         "babel-loader": "^8.2.5",
+        "babel-plugin-lodash": "^3.3.4",
+        "cross-env": "^7.0.3",
+        "css-loader": "^6.7.1",
+        "eslint": "^8.2.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-plugin-import": "^2.25.3",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-react": "^7.28.0",
+        "eslint-plugin-react-hooks": "^4.3.0",
+        "gh-pages": "^4.0.0",
         "html-webpack-plugin": "^5.5.0",
+        "lodash-webpack-plugin": "^0.11.6",
+        "mini-css-extract-plugin": "^2.6.1",
+        "style-loader": "^3.3.1",
+        "stylelint": "^14.14.0",
+        "stylelint-config-standard": "^29.0.0",
         "webpack": "^5.74.0",
         "webpack-cli": "^4.10.0",
         "webpack-dev-server": "^3.11.1"
