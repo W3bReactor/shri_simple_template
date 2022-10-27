@@ -16,8 +16,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: GitHub Pages action
-        uses: peaceiris/actions-gh-pages@v3.9.0
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - run: npm install
       - name: build
         run: npm run build
