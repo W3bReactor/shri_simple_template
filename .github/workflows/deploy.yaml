@@ -24,6 +24,6 @@ jobs:
       - run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         shell: /usr/bin/bash -e {0}
         env:
-          GITHUB_TOKEN: "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"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: deploy
         run: npm run deploy
