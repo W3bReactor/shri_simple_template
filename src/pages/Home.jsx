@@ -7,6 +7,7 @@ function Home() {
       <h1 data-testid="page-title">Home</h1>
       <p>This is the list.</p>
       <TodoList />
+      <h2>Review comment</h2>
     </>
   );
 }
