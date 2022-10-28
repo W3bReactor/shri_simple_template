@@ -10,15 +10,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: 'Deploy'
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3 
       - run: npm install
       - name: build
         run: npm run build
-      - run: git config --global user.name "w3breactor"
+      - run: git config --global user.name "W3bReactor"
       - run: git config --global user.email "vaironfop@Mail.ru"
-      - run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-      - name: deploy
-        run: npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+      - name: Deploy with gh-pages
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
