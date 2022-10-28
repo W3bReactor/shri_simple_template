@@ -20,7 +20,7 @@
     "scripts": {
         "start": "cross-env NODE_ENV=development webpack serve --open --mode development",
         "build": "cross-env NODE_ENV=production webpack --mode production",
-        "deploy": "npm run build | gh-pages -d dist",
+        "deploy": "gh-pages -d dist",
         "lint:js": "eslint **/src/*.js",
         "lint:css": "stylelint **/*.css",
         "analyze": "npm run build && statoscope generate stats.json --output report.html -o",
