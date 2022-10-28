@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkunit_demo_cra=self.webpackChunkunit_demo_cra||[]).push([[796],{796:(e,t,n)=>{n.d(t,{Z:()=>i}),n(294);var a=n(893);const i=function(){return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)("h1",{"data-testid":"page-title",children:"About"}),(0,a.jsx)("p",{children:"This is an example application."})]})}}}]);
