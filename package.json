@@ -26,7 +26,10 @@
         "analyze": "npm run build && statoscope generate stats.json --output report.html -o",
         "validate": "node_modules/.bin/statoscope validate -i stats.json --config=./statoscope.config.js"
     },
-    "eslintIgnore": ["**/node_modules/*.js", "**/dist/*.js"],
+    "eslintIgnore": [
+        "**/node_modules/*.js",
+        "**/dist/*.js"
+    ],
     "devDependencies": {
         "@babel/core": "^7.19.3",
         "@babel/preset-env": "^7.19.3",
