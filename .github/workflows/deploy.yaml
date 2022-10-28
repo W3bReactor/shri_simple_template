@@ -21,8 +21,8 @@ jobs:
       - run: npm install
       - name: build
         run: npm run build
-      - run: git config --global user.name "tizerr"
-      - run: git config --global user.email "iliya@plessky.ru"
+      - run: git config --global user.name "w3breactor"
+      - run: git config --global user.email "vaironfop@Mail.ru"
       - run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         shell: /usr/bin/bash -e {0}
         env:
